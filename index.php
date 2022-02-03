@@ -168,7 +168,7 @@
                 type: 'POST',
                 data: dados,
                 success: function(response) {
-                    alert(JSON.stringify(response.NOME))
+
                 }
 
             })
