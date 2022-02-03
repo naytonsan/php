@@ -166,7 +166,7 @@
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
-                url: 'script.php',
+                url: 'atualizar.php',
                 data: {
                     data: dados
                 },

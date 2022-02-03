@@ -164,15 +164,11 @@
             // console.log(dados)
 
             $.ajax({
-                type: 'POST',
-                dataType: 'json',
                 url: 'script.php',
-                async: true, // isso aqui serve pra que ?
-                data: {
-                    data: dados
-                },
+                type: 'POST',
+                data: dados,
                 success: function(response) {
-                    console.log(response)
+                    alert(JSON.stringify(response.NOME))
                 }
 
             })

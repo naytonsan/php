@@ -1,12 +1,14 @@
 <?php
+header('content-type: application/json');
 
-$data = $_POST['data'];
+$id = $_POST['id'];
+$nome = $_POST['nome'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
+$sql_atualizar = "UPDATE usuario SET nome = ($nome), email= ($email), senha= ($senha) WHERE ID_USUARIO=($id)";
 
-// com esse abaixo eu tive resultado, também
-// $teste = json_encode(['dataType' => gettype($data), 'data' => $data], JSON_FORCE_OBJECT);
-$teste = json_encode(['dataType' => gettype($data), 'data' => $data]);
+mysqli_query($con, $sql_atualizar) or die(mysqli_connect_error($con));
 
-print_r($teste);
-
-// como utilizar aqui no php esse print_r($teste) que é exibido no consulo do navagador ??
+$response =  array("success" => true, 'NOME' => $nome);
+echo json_encode($response);
