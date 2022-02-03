@@ -15,6 +15,14 @@
             text-decoration: none
         }
 
+        #addnome {
+            width: 180px;
+        }
+
+        #addemail {
+            width: 100px;
+        }
+
         label {
             display: block;
         }
