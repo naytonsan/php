@@ -120,7 +120,8 @@
 <script type="text/javascript" language="javascript">
     $(document).ready(function() {
 
-        // Esse botão que eu não estou coneguindo fazer funcionar
+        // Botão Salvar da TABELA não funcionando async
+        // não funciona async porque quando salvo é necessário atualizar a pagina para a nova linha add aparecer
         $('#addbtn').click(function() {
             var dados = {
                 nome: `${$('#addnome')[0].innerHTML}`,
@@ -132,12 +133,16 @@
                 url: 'salvar2.php',
                 type: 'POST',
                 data: dados,
-                success: function(response) {}
+                async: true,
+                success: function(response) {
+                    location.reload();
+                }
             })
+            return false;
         })
 
 
-        // Botão Salvar FUNCIONANDO
+        // Botão Salvar do modal FUNCIONANDO async
         $('#salvar').click(function() {
             var dados = $('#cadUsuario').serialize();
             $.ajax({
