@@ -164,40 +164,19 @@
             // console.log(dados)
 
             $.ajax({
-
-                // contentType: "application/json",
-                url: 'atualizar.php',
                 type: 'POST',
-                // async: true,
+                dataType: 'json',
+                url: 'script.php',
                 data: {
-                    id: 35,
-                    nome: "nay",
-                    email: "sdsd@asa",
-                    senha: "tererterte"
+                    data: dados
                 },
-                // dataType: "html",
                 success: function(response) {
-                    // alert(response)
-                    // location.reload();
-                    alert(response.NOME)
+                    console.log(response)
                 }
+
             })
 
-            // $.ajax({
-            //     url: 'atualizar.php',
-            //     type: 'POST',
-            //     data: jQuery.param({
-            //         field1: "hello",
-            //         field2: "hello2"
-            //     }),
-            //     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-            //     success: function(response) {
-            //         alert(response);
-            //     },
-            //     error: function() {
-            //         alert("error");
-            //     }
-            // });
+
 
         })
 

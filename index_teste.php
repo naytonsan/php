@@ -150,81 +150,76 @@
 
         // Esse botão que eu não estou coneguindo fazer funcionar
         $('.btn_update').click(function() {
-            var dados = [{
-                id: 33,
-                nome: 'Nome de teste',
-                email: 'email@teste.com',
-                senha: 'senha123'
-            }];
+            var dados = {
+                id: `${this.parentElement.parentElement.children["ID_USUARIO"].innerText}`,
+                nome: `${this.parentElement.parentElement.children["NOME"].innerText}`,
+                email: `${this.parentElement.parentElement.children["EMAIL"].innerText}`,
+                senha: `${this.parentElement.parentElement.children["SENHA"].innerText}`,
+            }
+            // console.log(this.parentElement.parentElement.children["ID_USUARIO"].innerText)
+            // console.log(this.parentElement.parentElement.children["NOME"].innerText)
+            // console.log(this.parentElement.parentElement.children["EMAIL"].innerText)
+            // console.log(this.parentElement.parentElement.children["SENHA"].innerText)
+
+            // console.log(dados)
+
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
                 url: 'script.php',
+                async: true, // isso aqui serve pra que ?
                 data: {
                     data: dados
                 },
                 success: function(response) {
                     console.log(response)
-                    window.open('http://localhost/ajax/script.php', '_blank');
                 }
+
             })
+
+
+
         })
 
-        // $.ajax({
-        //     url: 'atualizar.php',
-        //     type: 'POST',
-        //     data: jQuery.param({
-        //         field1: "hello",
-        //         field2: "hello2"
-        //     }),
-        //     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-        //     success: function(response) {
-        //         alert(response);
-        //     },
-        //     error: function() {
-        //         alert("error");
-        //     }
-        // });
-
-    })
 
 
+        //// aqui é o script para abrir o nosso pequeno modal
+        $("a[rel=modal]").click(function(ev) {
+            ev.preventDefault();
 
-    //// aqui é o script para abrir o nosso pequeno modal
-    $("a[rel=modal]").click(function(ev) {
-        ev.preventDefault();
+            var id = $(this).attr("href");
 
-        var id = $(this).attr("href");
+            var alturaTela = $(document).height();
+            var larguraTela = $(window).width();
 
-        var alturaTela = $(document).height();
-        var larguraTela = $(window).width();
+            //colocando o fundo preto
+            $('#mascara').css({
+                'width': larguraTela,
+                'height': alturaTela
+            });
+            $('#mascara').fadeIn(1000);
+            $('#mascara').fadeTo("slow", 0.8);
 
-        //colocando o fundo preto
-        $('#mascara').css({
-            'width': larguraTela,
-            'height': alturaTela
+            var left = ($(window).width() / 2) - ($(id).width() / 2);
+            var top = ($(window).height() / 2) - ($(id).height() / 2);
+
+            $(id).css({
+                'top': top,
+                'left': left
+            });
+            $(id).show();
         });
-        $('#mascara').fadeIn(1000);
-        $('#mascara').fadeTo("slow", 0.8);
 
-        var left = ($(window).width() / 2) - ($(id).width() / 2);
-        var top = ($(window).height() / 2) - ($(id).height() / 2);
-
-        $(id).css({
-            'top': top,
-            'left': left
+        $("#mascara").click(function() {
+            $(this).hide();
+            $(".window").hide();
         });
-        $(id).show();
-    });
 
-    $("#mascara").click(function() {
-        $(this).hide();
-        $(".window").hide();
-    });
+        $('.fechar').click(function(ev) {
+            ev.preventDefault();
+            $("#mascara").hide();
+            $(".window").hide();
+        });
 
-    $('.fechar').click(function(ev) {
-        ev.preventDefault();
-        $("#mascara").hide();
-        $(".window").hide();
     });
 </script>
