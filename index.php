@@ -10,6 +10,11 @@
     </SCRIPT>
 
     <style>
+        #btn_novo_usuario {
+            color: black;
+            text-decoration: none
+        }
+
         label {
             display: block;
         }
@@ -44,7 +49,12 @@
 </head>
 
 <body>
-    <a href="#janela1" rel="modal">Novo Usuario</a>
+    Janela Modal:
+    <button>
+        <a id='btn_novo_usuario' href="#janela1" rel="modal">Novo Usuario</a>
+    </button>
+
+    <br><br>
     <!--        Tabela de exibição dos dados-->
     <div id="table">
 
@@ -53,7 +63,7 @@
                 <td id='addnome' contenteditable="true">Nome</td>
                 <td id='addemail' contenteditable="true">Email</td>
                 <td id='addsenha' contenteditable="true">Senha</td>
-                <td><button id='addbtn' border="0px">Adicionar</button></td>
+                <td><button id='addbtn' border="0px">Novo Usuario</button></td>
             </tr>
         </table>
         <br>

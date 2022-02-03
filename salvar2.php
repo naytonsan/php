@@ -11,4 +11,4 @@ mysqli_query($con, $sql_insert) or die(mysqli_connect_error($con));
 
 
 $response = array("success" => true);
-// echo json_encode($response);
+echo json_encode($response);
