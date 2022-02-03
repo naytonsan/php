@@ -11,5 +11,5 @@ $sql_atualizar = "UPDATE usuario SET nome = '$nome', email= '$email', senha= '$s
 
 mysqli_query($con, $sql_atualizar) or die(mysqli_connect_error($con));
 
-$response =  array("success" => true, 'NOME' => $nome);
-echo json_encode($response);
+// $response =  array("success" => true, 'NOME' => $nome);
+// echo json_encode($response);

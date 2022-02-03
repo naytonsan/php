@@ -50,6 +50,16 @@
 
         <table border="1px" cellpadding="5px" cellspacing="0">
             <tr>
+                <td id='addnome' contenteditable="true">Nome</td>
+                <td id='addemail' contenteditable="true">Email</td>
+                <td id='addsenha' contenteditable="true">Senha</td>
+                <td><button id='addbtn' border="0px">Adicionar</button></td>
+            </tr>
+        </table>
+        <br>
+
+        <table border="1px" cellpadding="5px" cellspacing="0">
+            <tr>
                 <td>Id</td>
                 <td>Nome</td>
                 <td>Email</td>
@@ -110,6 +120,22 @@
 <script type="text/javascript" language="javascript">
     $(document).ready(function() {
 
+        // Esse botão que eu não estou coneguindo fazer funcionar
+        $('#addbtn').click(function() {
+            var dados = {
+                nome: `${$('#addnome')[0].innerHTML}`,
+                email: `${$('#addemail')[0].innerHTML}`,
+                senha: `${$('#addsenha')[0].innerHTML}`,
+            }
+            console.log(dados)
+            $.ajax({
+                url: 'salvar2.php',
+                type: 'POST',
+                data: dados,
+                success: function(response) {}
+            })
+        })
+
 
         // Botão Salvar FUNCIONANDO
         $('#salvar').click(function() {
@@ -134,7 +160,6 @@
             }
 
             $.ajax({
-
                 type: 'POST',
                 dataType: 'json',
                 url: 'deletar.php',
@@ -156,25 +181,12 @@
                 email: `${this.parentElement.parentElement.children["EMAIL"].innerText}`,
                 senha: `${this.parentElement.parentElement.children["SENHA"].innerText}`,
             }
-            // console.log(this.parentElement.parentElement.children["ID_USUARIO"].innerText)
-            // console.log(this.parentElement.parentElement.children["NOME"].innerText)
-            // console.log(this.parentElement.parentElement.children["EMAIL"].innerText)
-            // console.log(this.parentElement.parentElement.children["SENHA"].innerText)
-
-            // console.log(dados)
-
             $.ajax({
                 url: 'atualizar.php',
                 type: 'POST',
                 data: dados,
-                success: function(response) {
-
-                }
-
+                success: function(response) {}
             })
-
-
-
         })
 
 
