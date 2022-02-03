@@ -164,7 +164,7 @@
             // console.log(dados)
 
             $.ajax({
-                url: 'script.php',
+                url: 'atualizar.php',
                 type: 'POST',
                 data: dados,
                 success: function(response) {
