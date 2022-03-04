@@ -72,11 +72,12 @@
                 <label>Nome:</label><input type="text" name="nome" id="nome" />
                 <label>Email:</label><input type="text" name="email" id="email" />
                 <label>Senha:</label> <input type="text" name="senha" id="senha" />
-                <br /><br />
+                <br /> <br />
                 <input type="button" value="Salvar" id="salvar" />
             </form>
         </div>
         <div id="mascara"></div>
+
     </div>
 
     <script src="script.js"></script>
