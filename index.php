@@ -4,56 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Formulário de usuário</title>
+    <link href="style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" type="text/javascript"></script>
 
-    <script>
-    </SCRIPT>
-
-    <style>
-        #btn_novo_usuario {
-            color: black;
-            text-decoration: none
-        }
-
-        #addnome {
-            width: 180px;
-        }
-
-        #addemail {
-            width: 100px;
-        }
-
-        label {
-            display: block;
-        }
-
-        .window {
-            display: none;
-            width: 200px;
-            height: 300px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            background: #FFF;
-            z-index: 9900;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        #mascara {
-            display: none;
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 9000;
-            background-color: #000;
-        }
-
-        .fechar {
-            display: block;
-            text-align: right;
-        }
-    </style>
 </head>
 
 <body>
