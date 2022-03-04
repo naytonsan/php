@@ -6,7 +6,6 @@
     <title>Formulário de usuário</title>
     <link href="style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" type="text/javascript"></script>
-
 </head>
 
 <body>
@@ -14,9 +13,7 @@
     <button>
         <a id='btn_novo_usuario' href="#janela1" rel="modal">Novo Usuario</a>
     </button>
-
     <br><br>
-
     <div id='aviso'></div>
     <!--        Tabela de exibição dos dados-->
     <div id="table">
@@ -41,7 +38,6 @@
             </tr>
 
             <?php
-
             //Chama do bd
             include_once dirname(__FILE__) . '\conexao.php';
 
@@ -68,7 +64,7 @@
             ?>
         </table>
 
-        <!--            Modal que é aberto ao clicar novo usuario-->
+        <!--  Modal que é aberto ao clicar novo usuario  -->
         <div class="window" id="janela1">
             <a href="#" class="fechar">X Fechar</a>
             <h4>Cadastro de usuario</h4>
@@ -82,7 +78,6 @@
         </div>
         <div id="mascara"></div>
     </div>
-
 
     <script src="script.js"></script>
 </body>
