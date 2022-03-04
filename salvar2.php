@@ -9,6 +9,6 @@ $sql_insert = "INSERT INTO usuario (NOME, EMAIL, SENHA) VALUES ('$nome', '$email
 
 mysqli_query($con, $sql_insert) or die(mysqli_connect_error($con));
 
-
+// não sei pra que isso abaixo, só sei se retirar a pagina não atualiza automaticamente
 $response = array("success" => true);
 echo json_encode($response);

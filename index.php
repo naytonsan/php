@@ -63,6 +63,8 @@
     </button>
 
     <br><br>
+
+    <div id='aviso'></div>
     <!--        Tabela de exibição dos dados-->
     <div id="table">
 
@@ -138,8 +140,7 @@
 <script type="text/javascript" language="javascript">
     $(document).ready(function() {
 
-        // Botão Salvar da TABELA não funcionando async
-        // não funciona async porque quando salvo é necessário atualizar a pagina para a nova linha add aparecer
+        // Botão Salvar da TABELA 
         $('#addbtn').click(function() {
             var dados = {
                 nome: `${$('#addnome')[0].innerHTML}`,
@@ -151,23 +152,22 @@
                 url: 'salvar2.php',
                 type: 'POST',
                 data: dados,
-                async: true,
                 success: function(response) {
                     location.reload();
                 }
-            })
-            return false;
+            }).done(function(msg) {
+                console.log(msg[0]);
+            });
         })
 
 
-        // Botão Salvar do modal FUNCIONANDO async
+        // Botão Salvar do modal
         $('#salvar').click(function() {
             var dados = $('#cadUsuario').serialize();
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
                 url: 'salvar.php',
-                async: true,
                 data: dados,
                 success: function(response) {
                     location.reload();
@@ -176,7 +176,7 @@
             return false;
         });
 
-        // Botão deletar FUNCIONANDO
+        // Botão deletar
         $('.btn_del').click(function() {
             var dados_teste = {
                 id: `${this.id}`
@@ -196,7 +196,7 @@
 
 
 
-        // Esse botão que eu não estou coneguindo fazer funcionar
+        // Botão Atualizar
         $('.btn_update').click(function() {
             var dados = {
                 id: `${this.parentElement.parentElement.children["ID_USUARIO"].innerText}`,
