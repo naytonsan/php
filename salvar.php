@@ -8,6 +8,6 @@ $sql_insert = "INSERT INTO usuario (NOME, EMAIL, SENHA) VALUES ('$nome', '$email
 
 mysqli_query($con, $sql_insert) or die(mysqli_connect_error($con));
 
-
+// Porque o Atualizar e o Deletar funciona sem os comandos abaixo e o Salvar não ?
 $response = array("success" => true);
 echo json_encode($response);

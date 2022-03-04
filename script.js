@@ -16,9 +16,7 @@ $(document).ready(function () {
             success: function (response) {
                 location.reload();
             }
-        }).done(function (msg) {
-            console.log(msg[0]);
-        });
+        })
     })
 
 
@@ -27,7 +25,6 @@ $(document).ready(function () {
         var dados = $('#cadUsuario').serialize();
         $.ajax({
             type: 'POST',
-            dataType: 'json',
             url: 'salvar.php',
             data: dados,
             success: function (response) {
@@ -45,7 +42,6 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            dataType: 'json',
             url: 'deletar.php',
             async: true,
             data: dados_teste,
@@ -69,7 +65,9 @@ $(document).ready(function () {
             url: 'atualizar.php',
             type: 'POST',
             data: dados,
-            success: function (response) { }
+            success: function (response) {
+                location.reload();
+            }
         })
     })
 
