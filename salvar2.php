@@ -14,4 +14,4 @@ mysqli_query($con, $sql_insert) or die(mysqli_connect_error($con));
 // não sei pra que isso abaixo, só sei se retirar a pagina não atualiza automaticamente
 // Porque o Atualizar e o Deletar funciona sem os comandos abaixo e o Salvar não ?
 $response = array("success" => true);
-echo json_encode($response);
+json_encode($response);
